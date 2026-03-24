@@ -14,7 +14,7 @@ export default function Navbar() {
     { href: "/mini-apps", label: "Mini Apps" },
   ];
 
-  const getLinkStyle = (href) => {
+  const getLinkStyle = (href: string) => {
     const isActive = pathname === href;
 
     return {

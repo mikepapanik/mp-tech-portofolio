@@ -35,8 +35,8 @@ export default function Navbar() {
       alignItems: "center",
       justifyContent: "center",
       minHeight: "36px",
-      whiteSpace: "nowrap" as const,
-    };
+      whiteSpace: "nowrap",
+    } as const;
   };
 
   const contactStyle = {
@@ -58,8 +58,8 @@ export default function Navbar() {
     alignItems: "center",
     justifyContent: "center",
     minHeight: "38px",
-    whiteSpace: "nowrap" as const,
-  };
+    whiteSpace: "nowrap",
+  } as const;
 
   return (
     <nav
@@ -72,18 +72,17 @@ export default function Navbar() {
         background: "rgba(15, 23, 42, 0.80)",
         borderBottom: "1px solid rgba(148, 163, 184, 0.14)",
         boxShadow: "0 6px 24px rgba(0, 0, 0, 0.16)",
-        width: "100%",
       }}
     >
       <div
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "10px 16px",
+          padding: "2px 28px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          gap: "16px",
+          gap: "24px",
           flexWrap: "wrap",
         }}
       >
@@ -110,8 +109,8 @@ export default function Navbar() {
           <div
             style={{
               position: "relative",
-              width: "clamp(120px, 28vw, 170px)",
-              height: "clamp(48px, 10vw, 68px)",
+              width: "170px",
+              height: "68px",
               display: "flex",
               alignItems: "center",
             }}
@@ -121,7 +120,7 @@ export default function Navbar() {
               alt="MP Tech logo"
               fill
               priority
-              sizes="(max-width: 480px) 120px, (max-width: 768px) 140px, 170px"
+              sizes="170px"
               style={{
                 objectFit: "contain",
                 objectPosition: "left center",
@@ -137,12 +136,11 @@ export default function Navbar() {
             gap: "10px",
             alignItems: "center",
             justifyContent: "flex-end",
-            flexWrap: "wrap",
-            rowGap: "8px",
             fontFamily:
               "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
-            flex: 1,
-            minWidth: 0,
+            flexWrap: "wrap",
+            rowGap: "10px",
+            maxWidth: "100%",
           }}
         >
           {navItems.map((item) => (

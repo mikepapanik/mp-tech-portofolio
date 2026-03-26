@@ -3,9 +3,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth <= 768);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
 
   const navItems = [
     { href: "/", label: "Home" },
@@ -19,11 +28,11 @@ export default function Navbar() {
 
     return {
       textDecoration: "none",
-      fontSize: "14px",
+      fontSize: isMobile ? "13px" : "14px",
       fontWeight: isActive ? "600" : "500",
       letterSpacing: "0.2px",
       color: isActive ? "#ffffff" : "#dbeafe",
-      padding: "8px 10px",
+      padding: isMobile ? "7px 9px" : "8px 10px",
       borderRadius: "10px",
       background: isActive ? "rgba(59, 130, 246, 0.16)" : "transparent",
       border: isActive
@@ -34,18 +43,18 @@ export default function Navbar() {
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
-      minHeight: "36px",
+      minHeight: isMobile ? "34px" : "36px",
       whiteSpace: "nowrap",
     } as const;
   };
 
   const contactStyle = {
     textDecoration: "none",
-    fontSize: "14px",
+    fontSize: isMobile ? "13px" : "14px",
     fontWeight: "600",
     letterSpacing: "0.2px",
     color: "#f8fafc",
-    padding: "9px 15px",
+    padding: isMobile ? "8px 12px" : "9px 15px",
     borderRadius: "10px",
     border: "1px solid rgba(56, 189, 248, 0.45)",
     background:
@@ -57,7 +66,7 @@ export default function Navbar() {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    minHeight: "38px",
+    minHeight: isMobile ? "36px" : "38px",
     whiteSpace: "nowrap",
   } as const;
 
@@ -78,11 +87,11 @@ export default function Navbar() {
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "2px 28px",
+          padding: isMobile ? "10px 16px" : "2px 28px",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
-          gap: "24px",
+          justifyContent: isMobile ? "center" : "space-between",
+          gap: isMobile ? "12px" : "24px",
           flexWrap: "wrap",
         }}
       >
@@ -109,8 +118,8 @@ export default function Navbar() {
           <div
             style={{
               position: "relative",
-              width: "170px",
-              height: "68px",
+              width: isMobile ? "120px" : "170px",
+              height: isMobile ? "48px" : "68px",
               display: "flex",
               alignItems: "center",
             }}
@@ -120,7 +129,7 @@ export default function Navbar() {
               alt="MP Tech logo"
               fill
               priority
-              sizes="170px"
+              sizes={isMobile ? "120px" : "170px"}
               style={{
                 objectFit: "contain",
                 objectPosition: "left center",
@@ -133,14 +142,15 @@ export default function Navbar() {
         <div
           style={{
             display: "flex",
-            gap: "10px",
+            gap: isMobile ? "8px" : "10px",
             alignItems: "center",
-            justifyContent: "flex-end",
+            justifyContent: isMobile ? "center" : "flex-end",
             fontFamily:
               "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
             flexWrap: "wrap",
-            rowGap: "10px",
+            rowGap: isMobile ? "8px" : "10px",
             maxWidth: "100%",
+            width: isMobile ? "100%" : "auto",
           }}
         >
           {navItems.map((item) => (

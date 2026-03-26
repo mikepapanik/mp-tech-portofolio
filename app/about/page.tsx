@@ -1,4 +1,17 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 export default function AboutPage() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth <= 768);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
   const skills = {
     Programming: ["C#", "Java", "Python"],
 
@@ -40,19 +53,25 @@ export default function AboutPage() {
     border: "1px solid #1e293b",
     borderRadius: "22px",
     boxShadow: "0 12px 30px rgba(0, 0, 0, 0.18)",
+    minWidth: 0,
+    overflow: "hidden",
   } as const;
 
   const sectionTitleStyle = {
-    fontSize: "26px",
+    fontSize: isMobile ? "22px" : "26px",
     marginBottom: "16px",
     lineHeight: "1.3",
+    wordBreak: "break-word" as const,
+    overflowWrap: "anywhere" as const,
   } as const;
 
   const paragraphStyle = {
     color: "#cbd5e1",
     lineHeight: "1.85",
-    fontSize: "16.5px",
-    textAlign: "justify" as const,
+    fontSize: isMobile ? "15.5px" : "16.5px",
+    textAlign: isMobile ? ("left" as const) : ("justify" as const),
+    wordBreak: "break-word" as const,
+    overflowWrap: "anywhere" as const,
   };
 
   return (
@@ -66,31 +85,35 @@ export default function AboutPage() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
+        backgroundAttachment: isMobile ? "scroll" : "fixed",
         color: "white",
         fontFamily: "sans-serif",
-        padding: "70px 30px 90px 30px",
+        padding: isMobile ? "28px 16px 56px 16px" : "70px 30px 90px 30px",
       }}
     >
       <div
         style={{
           maxWidth: "1120px",
           margin: "0 auto",
+          minWidth: 0,
         }}
       >
         <div
           style={{
             marginBottom: "36px",
             maxWidth: "900px",
+            minWidth: 0,
           }}
         >
           <p
             style={{
               color: "#94a3b8",
               textTransform: "uppercase",
-              letterSpacing: "2px",
+              letterSpacing: isMobile ? "1.5px" : "2px",
               marginBottom: "12px",
               fontSize: "14px",
+              wordBreak: "break-word",
+              overflowWrap: "anywhere",
             }}
           >
             About Me
@@ -98,9 +121,11 @@ export default function AboutPage() {
 
           <h1
             style={{
-              fontSize: "48px",
+              fontSize: isMobile ? "34px" : "48px",
               marginBottom: "18px",
               lineHeight: "1.15",
+              wordBreak: "break-word",
+              overflowWrap: "anywhere",
             }}
           >
             Professional Background
@@ -109,11 +134,13 @@ export default function AboutPage() {
           <p
             style={{
               color: "#cbd5e1",
-              fontSize: "18px",
+              fontSize: isMobile ? "16px" : "18px",
               lineHeight: "1.85",
               maxWidth: "880px",
               margin: 0,
-              textAlign: "justify",
+              textAlign: isMobile ? "left" : "justify",
+              wordBreak: "break-word",
+              overflowWrap: "anywhere",
             }}
           >
             I am a Software Engineer with a strong interest in building
@@ -133,22 +160,27 @@ export default function AboutPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "minmax(0, 1.15fr) minmax(320px, 0.85fr)",
+            gridTemplateColumns: isMobile
+              ? "minmax(0, 1fr)"
+              : "minmax(0, 1.15fr) minmax(320px, 0.85fr)",
             gap: "24px",
             alignItems: "start",
+            minWidth: 0,
           }}
         >
           <div
             style={{
               ...cardStyle,
-              padding: "32px",
+              padding: isMobile ? "22px" : "32px",
             }}
           >
             <h2
               style={{
-                fontSize: "28px",
+                fontSize: isMobile ? "24px" : "28px",
                 marginBottom: "18px",
                 lineHeight: "1.3",
+                wordBreak: "break-word",
+                overflowWrap: "anywhere",
               }}
             >
               Professional Profile
@@ -211,17 +243,18 @@ export default function AboutPage() {
             style={{
               display: "grid",
               gap: "24px",
+              minWidth: 0,
             }}
           >
             <div
               style={{
                 ...cardStyle,
-                padding: "28px",
+                padding: isMobile ? "22px" : "28px",
               }}
             >
               <h2 style={sectionTitleStyle}>Focus</h2>
 
-              <div style={{ display: "grid", gap: "12px" }}>
+              <div style={{ display: "grid", gap: "12px", minWidth: 0 }}>
                 {[
                   "Software Development with C#, Java and Python",
                   "Backend Systems and REST API Development",
@@ -238,6 +271,8 @@ export default function AboutPage() {
                       color: "#e2e8f0",
                       lineHeight: "1.5",
                       fontSize: "15px",
+                      wordBreak: "break-word",
+                      overflowWrap: "anywhere",
                     }}
                   >
                     {item}
@@ -249,14 +284,14 @@ export default function AboutPage() {
             <div
               style={{
                 ...cardStyle,
-                padding: "28px",
+                padding: isMobile ? "22px" : "28px",
               }}
             >
               <h2 style={sectionTitleStyle}>Technical Skills</h2>
 
-              <div style={{ display: "grid", gap: "16px" }}>
+              <div style={{ display: "grid", gap: "16px", minWidth: 0 }}>
                 {Object.entries(skills).map(([category, items]) => (
-                  <div key={category}>
+                  <div key={category} style={{ minWidth: 0 }}>
                     <p
                       style={{
                         color: "#94a3b8",
@@ -264,6 +299,8 @@ export default function AboutPage() {
                         fontSize: "14px",
                         fontWeight: "bold",
                         letterSpacing: "0.3px",
+                        wordBreak: "break-word",
+                        overflowWrap: "anywhere",
                       }}
                     >
                       {category}
@@ -274,6 +311,7 @@ export default function AboutPage() {
                         display: "flex",
                         flexWrap: "wrap",
                         gap: "8px",
+                        minWidth: 0,
                       }}
                     >
                       {items.map((skill) => (
@@ -287,6 +325,9 @@ export default function AboutPage() {
                             color: "#ffffff",
                             fontSize: "13px",
                             lineHeight: "1.4",
+                            wordBreak: "break-word",
+                            overflowWrap: "anywhere",
+                            maxWidth: "100%",
                           }}
                         >
                           {skill}
@@ -304,7 +345,7 @@ export default function AboutPage() {
           style={{
             marginTop: "24px",
             ...cardStyle,
-            padding: "28px 30px",
+            padding: isMobile ? "22px" : "28px 30px",
           }}
         >
           <h2 style={sectionTitleStyle}>Working Style</h2>

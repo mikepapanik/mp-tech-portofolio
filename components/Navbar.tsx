@@ -35,6 +35,7 @@ export default function Navbar() {
       alignItems: "center",
       justifyContent: "center",
       minHeight: "36px",
+      whiteSpace: "nowrap" as const,
     };
   };
 
@@ -57,6 +58,7 @@ export default function Navbar() {
     alignItems: "center",
     justifyContent: "center",
     minHeight: "38px",
+    whiteSpace: "nowrap" as const,
   };
 
   return (
@@ -70,17 +72,19 @@ export default function Navbar() {
         background: "rgba(15, 23, 42, 0.80)",
         borderBottom: "1px solid rgba(148, 163, 184, 0.14)",
         boxShadow: "0 6px 24px rgba(0, 0, 0, 0.16)",
+        width: "100%",
       }}
     >
       <div
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "2px 28px",
+          padding: "10px 16px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          gap: "24px",
+          gap: "16px",
+          flexWrap: "wrap",
         }}
       >
         <Link
@@ -106,8 +110,8 @@ export default function Navbar() {
           <div
             style={{
               position: "relative",
-              width: "170px",
-              height: "68px",
+              width: "clamp(120px, 28vw, 170px)",
+              height: "clamp(48px, 10vw, 68px)",
               display: "flex",
               alignItems: "center",
             }}
@@ -117,7 +121,7 @@ export default function Navbar() {
               alt="MP Tech logo"
               fill
               priority
-              sizes="170px"
+              sizes="(max-width: 480px) 120px, (max-width: 768px) 140px, 170px"
               style={{
                 objectFit: "contain",
                 objectPosition: "left center",
@@ -133,8 +137,12 @@ export default function Navbar() {
             gap: "10px",
             alignItems: "center",
             justifyContent: "flex-end",
+            flexWrap: "wrap",
+            rowGap: "8px",
             fontFamily:
               "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
+            flex: 1,
+            minWidth: 0,
           }}
         >
           {navItems.map((item) => (

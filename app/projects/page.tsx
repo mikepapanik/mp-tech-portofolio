@@ -2,6 +2,25 @@ import Link from "next/link";
 
 const projects = [
   {
+    title: "SmartSales AI CRM",
+    description:
+      "Full-stack AI-powered CRM platform built with React and Java Spring Boot for lead tracking, task management, internal note handling, and intelligent lead summaries. Includes secure JWT authentication, role-based admin controls, and MySQL-backed persistence for structured workflow management.",
+    tech: [
+      "React",
+      "Java 21",
+      "Spring Boot",
+      "Spring Security",
+      "JWT",
+      "REST API",
+      "JPA / Hibernate",
+      "MySQL",
+      "Maven",
+      "Git",
+    ],
+    github: "https://github.com/mikepapanik/smartsales-ai-crm",
+    image: "/projects/smartsales-ai-crm.png",
+  },
+  {
     title: "Personal Contact Manager – Bootcamp Final Project",
     description:
       "Secure full-stack contact and event management web application built with Spring Boot. Implements authentication and authorization using Spring Security, RESTful CRUD APIs, and JPA/Hibernate integration with a MySQL database.",
@@ -183,7 +202,7 @@ export default function ProjectsPage() {
                     fontSize: "24px",
                     marginBottom: "12px",
                     lineHeight: "1.35",
-                    minHeight: "72px",
+                    minHeight: "84px",
                   }}
                 >
                   {project.title}
@@ -194,7 +213,7 @@ export default function ProjectsPage() {
                     color: "#cbd5e1",
                     lineHeight: "1.8",
                     marginBottom: "18px",
-                    minHeight: "150px",
+                    minHeight: "220px",
                     textAlign: "justify",
                   }}
                 >
@@ -207,7 +226,7 @@ export default function ProjectsPage() {
                     flexWrap: "wrap",
                     gap: "10px",
                     marginBottom: "24px",
-                    minHeight: "96px",
+                    minHeight: "150px",
                     alignContent: "flex-start",
                   }}
                 >

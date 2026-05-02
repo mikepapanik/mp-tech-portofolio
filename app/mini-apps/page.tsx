@@ -124,18 +124,15 @@ export default function MiniAppsPage() {
                   backgroundColor: "#111827",
                   borderBottom: "1px solid #1e293b",
                   padding: "8px",
-                  height: "235px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  height: "190px",
                 }}
               >
                 <img
                   src={app.image}
                   alt={app.title}
                   style={{
-                    width: "98%",
-                    height: "98%",
+                    width: "100%",
+                    height: "100%",
                     objectFit: "contain",
                     objectPosition: "center",
                     borderRadius: "14px",
@@ -220,9 +217,9 @@ export default function MiniAppsPage() {
                     color: "#cbd5e1",
                     lineHeight: "1.9",
                     marginBottom: "26px",
-                    textAlign: "justify",
+                    textAlign: "left",
                     fontSize: "16px",
-                    flexGrow: 1,
+                    minHeight: "230px",
                   }}
                 >
                   {app.description}

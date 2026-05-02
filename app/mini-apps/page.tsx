@@ -2,6 +2,17 @@ import Link from "next/link";
 
 const apps = [
   {
+    title: "Finance Manager Pro",
+    description:
+      "Windows desktop finance manager designed for simple local income and expense tracking. Users can add, edit, delete, search and export transactions, manage custom categories and payment methods, view monthly reports, calculate total balance, and track bank-related entries through a clean and easy-to-use interface.",
+    image: "/projects/Finance-Manager.png",
+    download: "/apps/FinanceManagerPro.zip",
+    github: "https://github.com/mikepapanik",
+    version: "v1.0.0",
+    size: "56.4 MB",
+    platform: "Windows",
+  },
+  {
     title: "Instagram Pending Requests Canceler",
     description:
       "Python desktop automation tool that reads usernames from an exported HTML file and helps cancel pending Instagram follow requests through an automated browser workflow. Built with Selenium-based interaction and designed to simplify repetitive account management actions after manual login.",

@@ -101,6 +101,7 @@ export default function MiniAppsPage() {
             gridTemplateColumns: "repeat(auto-fit, minmax(320px, 420px))",
             gap: "26px",
             justifyContent: "center",
+            alignItems: "stretch",
           }}
         >
           {apps.map((app) => (
@@ -114,6 +115,7 @@ export default function MiniAppsPage() {
                 boxShadow: "0 14px 35px rgba(0, 0, 0, 0.22)",
                 display: "flex",
                 flexDirection: "column",
+                height: "100%",
               }}
             >
               {/* IMAGE */}
@@ -130,8 +132,11 @@ export default function MiniAppsPage() {
                   style={{
                     width: "100%",
                     height: "190px",
-                    objectFit: "cover",
+                    objectFit: "contain",
+                    objectPosition: "center",
                     borderRadius: "14px",
+                    backgroundColor: "#0f172a",
+                    padding: "6px",
                   }}
                 />
               </div>
@@ -200,6 +205,7 @@ export default function MiniAppsPage() {
                     fontSize: "26px",
                     marginBottom: "12px",
                     lineHeight: "1.3",
+                    minHeight: "68px",
                   }}
                 >
                   {app.title}
@@ -211,8 +217,9 @@ export default function MiniAppsPage() {
                     color: "#cbd5e1",
                     lineHeight: "1.9",
                     marginBottom: "26px",
-                    textAlign: "justify",
+                    textAlign: "left",
                     fontSize: "16px",
+                    minHeight: "230px",
                   }}
                 >
                   {app.description}

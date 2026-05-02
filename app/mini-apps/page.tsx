@@ -123,20 +123,23 @@ export default function MiniAppsPage() {
                 style={{
                   backgroundColor: "#111827",
                   borderBottom: "1px solid #1e293b",
-                  padding: "14px",
+                  padding: "10px",
+                  height: "220px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 <img
                   src={app.image}
                   alt={app.title}
                   style={{
-                    width: "100%",
-                    height: "190px",
+                    width: "96%",
+                    height: "96%",
                     objectFit: "contain",
                     objectPosition: "center",
                     borderRadius: "14px",
-                    backgroundColor: "#0f172a",
-                    padding: "6px",
+                    display: "block",
                   }}
                 />
               </div>

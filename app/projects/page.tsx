@@ -149,7 +149,8 @@ export default function ProjectsPage() {
         backgroundAttachment: "fixed",
         color: "white",
         fontFamily: "sans-serif",
-        padding: "76px 30px 100px 30px",
+        padding:
+          "76px clamp(16px, 5vw, 30px) 100px clamp(16px, 5vw, 30px)",
       }}
     >
       <div
@@ -215,7 +216,7 @@ export default function ProjectsPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))",
             gap: "28px",
             alignItems: "stretch",
           }}
@@ -241,7 +242,7 @@ export default function ProjectsPage() {
               >
                 <div
                   style={{
-                    height: "238px",
+                    height: "clamp(205px, 45vw, 238px)",
                     background:
                       "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
                     display: "flex",
@@ -380,6 +381,7 @@ export default function ProjectsPage() {
                       display: "flex",
                       justifyContent: "center",
                       gap: "12px",
+                      flexWrap: "wrap",
                     }}
                   >
                     <Link
@@ -437,7 +439,7 @@ export default function ProjectsPage() {
             margin: "34px auto 0 auto",
             maxWidth: "960px",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
             gap: "18px",
           }}
         >

@@ -2,6 +2,24 @@ import Link from "next/link";
 
 const projects = [
   {
+  title: "GymAccessManager – Gym Management Platform",
+  description:
+    "Full-stack gym management and access-control platform with member and staff management, subscriptions, payments, QR attendance scanning, reports, CSV export, usage limits, and role-based dashboards.",
+  tech: [
+    "C#",
+    "ASP.NET Core Web API",
+    "EF Core",
+    "MySQL",
+    "JWT",
+    "React",
+    "TypeScript",
+    "Vite",
+    "Tailwind CSS",
+  ],
+  github: "https://github.com/mikepapanik/GymAccessManager",
+  image: "/projects/gym-access-manager.png",
+  },
+  {
     title: "SmartSales AI CRM",
     description:
       "Full-stack AI-powered CRM platform built with React and Java Spring Boot for lead tracking, task management, internal note handling, and intelligent lead summaries. Includes secure JWT authentication, role-based admin controls, and MySQL-backed persistence for structured workflow management.",

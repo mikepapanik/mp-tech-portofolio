@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const projects = [
   {
-  title: "GymAccessManager – Gym Management Platform",
+  title: "GymAccessManager - Gym Management Platform",
   description:
-    "Full-stack gym management and access-control platform with member and staff management, subscriptions, payments, QR attendance scanning, reports, CSV export, usage limits, and role-based dashboards.",
+    "Full-stack gym management and access-control platform built with ASP.NET Core Web API and React + TypeScript. Supports member and staff management, membership plans, subscriptions, payments, QR attendance scanning, reports, CSV export, usage limits, and role-based dashboards for gym owners and administrators.",
   tech: [
     "C#",
     "ASP.NET Core Web API",
@@ -15,6 +15,8 @@ const projects = [
     "TypeScript",
     "Vite",
     "Tailwind CSS",
+    "Swagger / OpenAPI",
+    "Git",
   ],
   github: "https://github.com/mikepapanik/GymAccessManager",
   image: "/projects/gym-access-manager.png",
@@ -243,6 +245,7 @@ export default function ProjectsPage() {
                     display: "flex",
                     flexWrap: "wrap",
                     gap: "10px",
+                    marginTop: "auto",
                     marginBottom: "24px",
                     minHeight: "150px",
                     alignContent: "flex-start",
@@ -270,7 +273,6 @@ export default function ProjectsPage() {
                   style={{
                     display: "flex",
                     justifyContent: "center",
-                    marginTop: "auto",
                   }}
                 >
                   <Link
